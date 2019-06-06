@@ -49,12 +49,13 @@ namespace StepenChisla
         private static void ChisloStepen(int number)
         {
             bool ok = false;
-            for(int i = 2; i<number; i++)
+            for(int i = 2; i<Math.Sqrt(number); i++)
             {
                 if(number % i == 0)
                 {
                     double x = Math.Log10(number) / Math.Log10(i);
-                    if (Math.Pow(i, x) == number)
+                    int xx = Convert.ToInt32(x);
+                    if (Math.Pow(i, xx) == number)
                     {
                         MessGreen("\n YES");
                         ok = true;
