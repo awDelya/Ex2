@@ -33,9 +33,23 @@ namespace StepenChisla
             Console.Write(message);
             Console.ResetColor();
         }
+        public static int Check(int min, int max)
+        {
+            bool ok;
+            int n;
+            do
+            {
+                string buf = Console.ReadLine();
+                ok = int.TryParse(buf, out n) && n >= min && n <= max;
+                if (ok == false)
+                    MessRed("\nОшибка! Повторите ввод: ");
+            } while (!ok);
+            return n;
+        }
         static void Main()
         {
-
+            MessYellow("\n Введите колличество элементов: ");
+            int x = Check(1, 10);
         }
     }
 }
